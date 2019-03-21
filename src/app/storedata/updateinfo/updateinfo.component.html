@@ -1,0 +1,45 @@
+<mat-card>
+    <div class="example-container">
+      
+        <mat-form-field hintLabel="Max 15 characters">
+          <input matInput #input maxlength="15" placeholder="Student Name" type="text" [(ngModel)] = 'info.student_name'>
+          <mat-hint align="end">{{input.value?.length || 0}}/15</mat-hint>
+        </mat-form-field>
+      
+        <mat-form-field hintLabel="Max 12 characters">
+          <input matInput #input2 maxlength="12" placeholder="Register Number" [(ngModel)] = 'info.register_number'>
+          <mat-hint align="end">{{input2.value?.length || 0}}/12</mat-hint>
+        </mat-form-field>
+      
+        <mat-form-field hintLabel="Max 10 characters">
+          <input matInput #input3 maxlength="10" placeholder="Mobile Number" [(ngModel)] = 'info.mobile_number'>
+          <mat-hint align="end">{{input3.value?.length || 0}}/10</mat-hint>
+        </mat-form-field>
+      
+        <!-- <mat-form-field hintLabel="Max 15 characters">
+          <input matInput #input4 maxlength="15" placeholder="State" type="text" [(ngModel)] = 'info.address.state'>
+          <mat-hint align="end">{{input4.value?.length || 0}}/15</mat-hint>
+        </mat-form-field>
+      
+        <mat-form-field hintLabel="Max 20 characters">
+          <input matInput #input4 maxlength="20" placeholder="City" type="text" [(ngModel)] = 'info.address.city'>
+          <mat-hint align="end">{{input4.value?.length || 0}}/20</mat-hint>
+        </mat-form-field>
+      
+        <mat-form-field hintLabel="Max 25 characters">
+          <input matInput #input4 maxlength="25" placeholder="Village" type="text" [(ngModel)] = 'info.address.village'>
+          <mat-hint align="end">{{input4.value?.length || 0}}/25</mat-hint>
+        </mat-form-field> -->
+      </div>
+      <button mat-raised-button color="primary" (click)="update()">Update</button>
+</mat-card>
+
+<!-- File input for the file-upload plugin, with special ng2-file-upload directive called ng2FileSelect -->
+<input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
+<!-- button to trigger the file upload when submitted -->
+<button type="button" class="btn btn-success btn-s"
+      (click)="uploader.uploadAll()" 
+      [disabled]="!uploader.getNotUploadedItems().length">
+      Upload with ng-2 file uploader
+</button>
+
