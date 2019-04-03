@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ImageblobComponent } from './imageblob.component';
+import { ObjectpassingComponent } from './objectpassing.component';
 
-describe('ImageblobComponent', () => {
-  let component: ImageblobComponent;
-  let fixture: ComponentFixture<ImageblobComponent>;
+describe('ObjectpassingComponent', () => {
+  let component: ObjectpassingComponent;
+  let fixture: ComponentFixture<ObjectpassingComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ImageblobComponent ]
+      declarations: [ ObjectpassingComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ImageblobComponent);
+    fixture = TestBed.createComponent(ObjectpassingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

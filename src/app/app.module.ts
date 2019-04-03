@@ -22,7 +22,8 @@ import { PdfmakerComponent } from './storedata/pdfmaker/pdfmaker.component';
 import { MattabledemoComponent } from './storedata/mattabledemo/mattabledemo.component';
 
 import {NgxTTitanColorPickerModule} from "ngx-ttitan-color-picker";
-import { ImageblobComponent } from './storedata/imageblob/imageblob.component';
+import { ObjectpassingComponent } from './storedata/objectpassing/objectpassing.component';
+
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -75,7 +76,8 @@ const customNotifierOptions: NotifierOptions = {
     FormdemoComponent,
     PdfmakerComponent,
     MattabledemoComponent,
-    ImageblobComponent,
+    ObjectpassingComponent,
+    
     
 
   ],

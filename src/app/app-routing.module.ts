@@ -7,7 +7,8 @@ import { DashboardComponent } from './storedata/dashboard/dashboard.component';
 import { FormdemoComponent } from './storedata/formdemo/formdemo.component';
 import { PdfmakerComponent } from './storedata/pdfmaker/pdfmaker.component';
 import { MattabledemoComponent } from './storedata/mattabledemo/mattabledemo.component';
-import { ImageblobComponent } from './storedata/imageblob/imageblob.component';
+import { ObjectpassingComponent } from './storedata/objectpassing/objectpassing.component';
+
 
 const routes: Routes = [
 
@@ -36,8 +37,8 @@ const routes: Routes = [
       component: MattabledemoComponent
     },
     {
-      path: 'blob',
-      component: ImageblobComponent
+      path: 'objectpass',
+      component: ObjectpassingComponent
     }
 //   ]
 // },
