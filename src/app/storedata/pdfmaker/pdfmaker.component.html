@@ -1,0 +1,27 @@
+<div [ngStyle] = "{ 'background-color' :  color2}">
+<p>
+  pdfmaker works!
+</p>
+<button mat-raised-button color="warn" (click) = "generatePdf()">PDF generate</button>
+
+<br><br>
+
+<!-- <div class="demo-section">
+  <h3 class="section-title">Output event and title</h3>
+  <div class="section-content">
+    <div class="picker-wrapper">
+      <lib-ngx-ttitan-color-picker 
+        [title]="'Color Picker'"
+        [color]="color2" 
+        (colorChange)="colorChange($event)"
+      ></lib-ngx-ttitan-color-picker>
+    </div>
+    <div class="detail-wrapper">
+      
+    </div>
+  </div>
+</div> -->
+<p  #colorProp>VIGNESHWARAN ESWARAMOORTHI</p>
+
+</div>
+<button class="btn btn-primary" (click) = "pdfMaker()">PDF Maker</button>

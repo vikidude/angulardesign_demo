@@ -1,0 +1,33 @@
+.example-icon {
+    padding: 0 14px;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  table {
+    width: 100%;
+    table-layout: inital;
+  }
+    
+  /* .mat-row {
+    height: auto;
+  }
+  
+  .mat-cell {
+    padding: 20px 0px 0px 0px;
+  }  */
+  /* .customWidthClass{
+    flex: 0 0 -0.75px;
+    color: aqua;
+    border-spacing: 5px;
+    padding-left: 5px;
+
+ } */
+ .example-container {
+
+   height: 120px;
+   /* background-color:greenyellow; */
+   flex-shrink: initial;
+ }
+

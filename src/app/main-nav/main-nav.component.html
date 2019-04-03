@@ -1,0 +1,58 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)">
+    <mat-toolbar color="primary" >Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/">Home</a>
+      <a mat-list-item routerLink="/dashboard">Dashboard</a>
+      <a mat-list-item routerLink="/formdemo">Form Demo</a>
+      <a mat-list-item routerLink="/pdfmake">Pdfmake Demo</a>
+      <a mat-list-item routerLink="/blob">Blob Demo</a>
+      <a mat-list-item routerLink="/mattable">Mat Table Demo</a>
+      <!-- <a mat-list-item href="/update">Update</a> -->
+      <button mat-button [matMenuTriggerFor]="animals">Food index</button>
+
+      <mat-menu #animals="matMenu">
+        <button mat-menu-item [matMenuTriggerFor] = "vegetarian">Vegetarian</button>
+        <button mat-menu-item [matMenuTriggerFor] = "nonvegetarian">Non-Vegetarian</button>
+      </mat-menu>
+
+      <mat-menu #vegetarian="matMenu">
+        <button mat-menu-item [matMenuTriggerFor] = "idly" >Idly</button>
+        <button mat-menu-item [matMenuTriggerFor] = "dhosa" >Dhosa</button>
+      </mat-menu>
+
+      <mat-menu #nonvegetarian="matMenu">
+        <button mat-menu-item>Chicken noodles</button>
+        <button mat-menu-item>Mutton biriyani</button>
+      </mat-menu>
+
+      <mat-menu #idly="matMenu">
+        <button mat-menu-item>Sambar Idly</button>
+        <button mat-menu-item>Kushbu Idly</button>
+      </mat-menu>
+
+      <mat-menu #dhosa="matMenu">
+        <button mat-menu-item>Podi Dhosa</button>
+        <button mat-menu-item>Onion Dhosa</button>
+        <button mat-menu-item >Double Dhosa</button>
+      </mat-menu>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>testapp1</span>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

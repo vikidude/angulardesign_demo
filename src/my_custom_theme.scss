@@ -1,0 +1,129 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$light-theme-primary: mat-palette($mat-indigo, 300);
+$light-theme-accent:  mat-palette($mat-green, 500);
+
+// The warn palette is optional (defaults to red).
+$light-theme-warn:    mat-palette($mat-red);
+// $theme-foreground : mat-palette($mat-deep-orange);
+
+// Create the theme object (a Sass map containing all of the palettes).
+
+
+
+
+$dark-theme-primary: mat-palette($mat-yellow, 300);
+$dark-theme-accent:  mat-palette($mat-deep-purple, 300);
+$dark-theme-warn:    mat-palette($mat-red);
+
+
+mat-cell,
+.mat-cell,
+mat-footer-cell,
+.mat-footer-cell,
+mat-header-cell .mat-header-cell {
+  padding: 5px 5px 0px 5px !important;
+}
+// mat-row,
+// .mat-row,
+// mat-footer-cell,
+// .mat-footer-cell,
+// mat-header-cell .mat-header-cell {
+//   height : auto;
+// }
+
+
+
+
+// custom background and foreground palettes
+$my-dark-light-background: (
+  status-bar: map_get($mat-grey, 300),
+  app-bar:    map_get($mat-grey, 100),
+  background: map_get($mat-deep-orange, A100),
+  hover:      rgba(black, 0.04), // TODO(kara): check style with Material Design UX
+  card:       white,
+  dialog:     white,
+  disabled-button: rgba(black, 0.12),
+  raised-button: rgb(51, 34, 34),
+  focused-button: $dark-focused,
+  selected-button: map_get($mat-grey, 300),
+  selected-disabled-button: map_get($mat-grey, 400),
+  disabled-button-toggle: map_get($mat-grey, 200),
+  unselected-chip: map_get($mat-grey, 300),
+  disabled-list-option: map_get($mat-grey, 200),
+);
+
+$light-theme-theme: mat-light-theme($light-theme-primary, $light-theme-accent, $light-theme-warn);
+
+$dark-theme-theme: mat-dark-theme($dark-theme-primary, $dark-theme-accent, $dark-theme-warn);  
+
+.light-theme {
+  @include angular-material-theme($light-theme-theme);
+}
+
+.dark-theme {
+  @include angular-material-theme($dark-theme-theme);
+}
+
+// Define a custom typography config that overrides the font-family as well as the
+// `headlines` and `body-1` levels.
+
+$custom-typography: mat-typography-config(
+  $font-family: 'Pacifico, monospace',
+  $headline: mat-typography-level(15px, 48px, 700),
+  $body-1: mat-typography-level(20px, 50px, 500px),
+  $button: mat-typography-level(25px, 50px, 50px),
+
+);
+@include mat-core($custom-typography);
+
+.mat-column-position {
+  /* word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 8% !important; */
+  width: 5% !important;
+  /* overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto; */
+}
+$mat-light-theme-background: (
+  status-bar: map_get($mat-grey, 300),
+  app-bar:    map_get($mat-grey, 100),
+  background: map_get($mat-grey, A100),
+  hover:      rgba(black, 0.04), // TODO(kara): check style with Material Design UX
+  card:       white,
+  dialog:     white,
+  disabled-button: $black-12-opacity,
+  raised-button: white,
+  focused-button: $black-6-opacity,
+  selected-button: map_get($mat-grey, 300),
+  selected-disabled-button: map_get($mat-grey, 400),
+  disabled-button-toggle: map_get($mat-grey, 200),
+  unselected-chip: map_get($mat-grey, 300),
+  disabled-list-option: map_get($mat-grey, 200),
+);
+
+$mat-light-theme-foreground: (
+  base:              black,
+  divider:           $dark-dividers,
+  dividers:          $dark-dividers,
+  disabled:          $dark-disabled-text,
+  disabled-button:   rgba(black, 0.26),
+  disabled-text:     $dark-disabled-text,
+  hint-text:         $dark-disabled-text,
+  secondary-text:    $dark-secondary-text,
+  icon:              rgba(black, 0.54),
+  icons:             rgba(black, 0.54),
+  text:              rgba(black, 0.87),
+  slider-min:        rgba(black, 0.87),
+  slider-off:        rgba(black, 0.26),
+  slider-off-active: rgba(black, 0.38),
+);

@@ -1,0 +1,102 @@
+<div [class] = "theme">
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Custom Toolbar</span>
+    <span class="example-spacer"></span>
+    <span>Dashboard</span>
+    <span class="example-spacer"></span>
+    <button mat-button [matMenuTriggerFor]="appMenu"
+        matTooltip="Change theme"
+        aria-label="Button that displays a tooltip when focused or hovered over">
+        <mat-icon class="material-icons">format_color_fill</mat-icon>
+    </button>
+    
+    <mat-menu #appMenu="matMenu"  >
+       
+         
+          <button mat-menu-item value = "light-theme" (click)="update($event)"> <mat-icon color="primary">
+              lens</mat-icon> Light</button>  
+            
+            <button mat-menu-item value = "dark-theme" (click)="update($event)"> <mat-icon color="accent">
+                lens</mat-icon> Dark</button>
+            
+    </mat-menu>
+
+    <!-- <mat-form-field color="accent">
+     
+      <mat-select [(ngModel)] = "theme" (change)="update()" color="accent">
+        <mat-option value = "light-theme" >
+            Light Theme
+        </mat-option>
+    
+        <mat-option value = "dark-theme">
+          Dark Theme
+        </mat-option>
+      </mat-select>
+    </mat-form-field> -->
+  </mat-toolbar-row>
+
+  <!-- <mat-toolbar-row>
+    <span>Second Line</span>
+    <span class="example-spacer"></span>
+    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">verified_user</mat-icon>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row>
+    <span>Third Line</span>
+    <span class="example-spacer"></span>
+    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
+    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
+  </mat-toolbar-row> -->
+</mat-toolbar>
+
+<br>
+<br>
+
+<table mat-table [dataSource]="dataSource" class="example-container mat-elevation-z8" matSort  >
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="position" >
+    <th mat-header-cell *matHeaderCellDef fxFlex="100px" mat-sort-header  class="customWidthClass">  No. </th>
+    <td mat-cell *matCellDef="let element" class="customWidthClass"> {{element.position}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="customWidthClass"> Name </th>
+    <td mat-cell *matCellDef="let element" class="customWidthClass"> {{element.name}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="weight">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="customWidthClass"> Weight </th>
+    <td mat-cell *matCellDef="let element" class="customWidthClass"> {{element.weight}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="symbol">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="customWidthClass"> Symbol </th>
+    <td mat-cell *matCellDef="let element" class="customWidthClass" > {{element.symbol}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+</table>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+<button mat-raised-button color="accent">Accent!</button>
+
+<button mat-raised-button color="primary">Primary!</button>
+<h1 class="mat-h1"> Hello World</h1>
+
+<label>Text input</label><br>
+
+<input type="text" [(ngModel)] = "text" placeholder="text input"  #firstNameInput (keypress)="onEnterPress($event)" />
+{{text}}
+<br><br><br>
+</div>

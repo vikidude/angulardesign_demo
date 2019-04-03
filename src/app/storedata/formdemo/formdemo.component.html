@@ -1,0 +1,77 @@
+<mat-toolbar color="accent">
+  Reactive Forms Module
+</mat-toolbar>
+
+<!-- main app container -->
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h3>Angular 6 Reactive Form Validation</h3>
+                <form [formGroup]="form" (ngSubmit)="form.valid && onSubmit()">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': form.get('firstName').touched && form.get('firstName').invalid }" />
+                            <div  class="invalid-feedback">
+                            <div>First Name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': form.get('lastName').touched && form.get('lastName').invalid }" />
+                            <div  class="invalid-feedback">
+                            <div>Last Name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': form.get('email').touched && form.get('email').invalid }" />
+                          <div *ngIf="form.get('email').touched && form.get('email').invalid" class="invalid-feedback">
+                            <div *ngIf="form.get('email').errors.required">Email is required</div>
+                            <div *ngIf="form.get('email').errors.email">Email must be a valid email address</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': form.get('password').touched && form.get('password').invalid }" />
+                          <div *ngIf="form.get('password').touched && form.get('password').invalid" class="invalid-feedback">
+                            <div *ngIf="form.get('password').errors.required">Password is required</div>
+                            <div *ngIf="form.get('password').errors.minlength">Password must be at least 5 characters</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mobile Number</label>
+                        <input type="number" formControlName="mobileNumber" class="form-control" [ngClass] = " { 'is-invalid': form.get('mobileNumber').touched && form.get('mobileNumber').invalid } " />
+                          <div *ngIf="form.get('mobileNumber').touched && form.get('mobileNumber').invalid" class="invalid-feedback">
+                            <div *ngIf = "form.get('mobileNumber').errors.required "> Mobile Number required </div>
+                            <div *ngIf = "form.get('mobileNumber').errors.min ">Mobile number should be 10 characters</div>
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label>Age</label>
+                        <input  type="number" formControlName="age" class="form-control" [ngClass] = " { 'is-invalid': form.get('age').touched && form.get('age').invalid } " />
+                          <div *ngIf="form.get('age').touched && form.get('age').invalid" class="invalid-feedback">
+                            <div *ngIf = "form.get('age').errors.required "> Age required </div>
+                            <div *ngIf = "form.get('age').errors.ageRangeValidator ">Age should be 10 to 18</div>
+                          </div>
+                      </div>
+                      
+
+                      <div class="form-group">
+                        <label>dummy</label>
+                        <input pattern="[A-Za-z]{3}" type="text" class="form-control" />
+                          
+                      </div>
+
+                    <div class="form-group">
+                        <button class="btn btn-primary" [disabled] = "!form.valid">Register</button>
+                        <button class="btn btn-warning" (click) = "onReset()">Reset Form</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

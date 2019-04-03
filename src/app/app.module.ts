@@ -6,13 +6,24 @@ import { AppComponent } from './app.component';
 import { StudentinfoComponent } from './storedata/studentinfo/studentinfo.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatGridListModule,MatButtonModule, MatFormFieldModule, MatOptionModule, MatSelectModule, MatInputModule, MatCardModule, MatToolbarModule, MatIconModule, MatTabsModule, MatTableModule, MatPaginatorModule, MatSortModule, MatTooltipModule} from '@angular/material';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatSidenavModule,MatDialogModule,MatMenuModule,MatGridListModule,MatButtonModule, MatFormFieldModule, MatOptionModule, MatSelectModule, MatInputModule, MatCardModule, MatToolbarModule, MatIconModule, MatTabsModule, MatTableModule, MatPaginatorModule, MatSortModule, MatTooltipModule, MatNavList, MatListModule} from '@angular/material';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NotifierModule, NotifierOptions } from 'angular-notifier';
 import { UpdateinfoComponent } from './storedata/updateinfo/updateinfo.component';
 import { FileSelectDirective } from 'ng2-file-upload';
- 
+import { DashboardComponent } from './storedata/dashboard/dashboard.component';
+
+import { LayoutModule } from '@angular/cdk/layout';
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { FormdemoComponent } from './storedata/formdemo/formdemo.component';
+import { KeyboardShortcutsModule }     from 'ng-keyboard-shortcuts';
+import { PdfmakerComponent } from './storedata/pdfmaker/pdfmaker.component';
+import { MattabledemoComponent } from './storedata/mattabledemo/mattabledemo.component';
+
+import {NgxTTitanColorPickerModule} from "ngx-ttitan-color-picker";
+import { ImageblobComponent } from './storedata/imageblob/imageblob.component';
+
 const customNotifierOptions: NotifierOptions = {
   position: {
 		horizontal: {
@@ -58,7 +69,14 @@ const customNotifierOptions: NotifierOptions = {
     AppComponent,
     StudentinfoComponent,
     UpdateinfoComponent,
-    FileSelectDirective
+    FileSelectDirective,
+    DashboardComponent,
+    MainNavComponent,
+    FormdemoComponent,
+    PdfmakerComponent,
+    MattabledemoComponent,
+    ImageblobComponent,
+    
 
   ],
   imports: [
@@ -82,10 +100,20 @@ const customNotifierOptions: NotifierOptions = {
     NotifierModule.withConfig(customNotifierOptions),
     MatTooltipModule,
     MatGridListModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    MatMenuModule,
+    MatDialogModule,
+    MatSidenavModule,
+    LayoutModule,
+    MatListModule,
+    ReactiveFormsModule,
+    KeyboardShortcutsModule,
+    NgxTTitanColorPickerModule,
     
-    ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+   entryComponents: [UpdateinfoComponent]
 })
 export class AppModule { }

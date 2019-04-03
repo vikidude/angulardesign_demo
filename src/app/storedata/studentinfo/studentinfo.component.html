@@ -1,7 +1,9 @@
+
 <mat-toolbar >Student Info Form</mat-toolbar>
 
+<!-- <button mat-raised-button color = "warn" (click) = "onClickButton()">Modal</button> -->
 
-<mat-tab-group>
+<mat-tab-group   >
   <mat-tab>
     <ng-template mat-tab-label>
       <!-- <mat-icon class="example-tab-icon">thumb_up</mat-icon> -->
@@ -30,11 +32,7 @@
         <td mat-cell *matCellDef="let element"> {{element.mobile_number}} </td>
       </ng-container>
     
-      <!-- address Column -->
-      <!-- <ng-container matColumnDef="Address">
-        <th mat-header-cell *matHeaderCellDef> Address </th>
-        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
-      </ng-container> -->
+
     
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
@@ -66,20 +64,7 @@
           <mat-hint align="end">{{input3.value?.length || 0}}/10</mat-hint>
         </mat-form-field>
       
-        <!-- <mat-form-field hintLabel="Max 15 characters">
-          <input matInput #input4 maxlength="15" placeholder="State" type="text" [(ngModel)] = 'info.address.state'>
-          <mat-hint align="end">{{input4.value?.length || 0}}/15</mat-hint>
-        </mat-form-field>
-      
-        <mat-form-field hintLabel="Max 20 characters">
-          <input matInput #input4 maxlength="20" placeholder="City" type="text" [(ngModel)] = 'info.address.city'>
-          <mat-hint align="end">{{input4.value?.length || 0}}/20</mat-hint>
-        </mat-form-field>
-      
-        <mat-form-field hintLabel="Max 25 characters">
-          <input matInput #input4 maxlength="25" placeholder="Village" type="text" [(ngModel)] = 'info.address.village'>
-          <mat-hint align="end">{{input4.value?.length || 0}}/25</mat-hint>
-        </mat-form-field> -->
+  
       </div>
       <br>
       <button mat-raised-button color="accent" (click)="submit()">Submit</button>
@@ -115,19 +100,13 @@
         <th mat-header-cell *matHeaderCellDef> Mobile_Number </th>
         <td mat-cell *matCellDef="let element"> {{element.mobile_number}} </td>
       </ng-container>
-    
-      <!-- address Column -->
-      <!-- <ng-container matColumnDef="Address">
-        <th mat-header-cell *matHeaderCellDef> Address </th>
-        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
-      </ng-container> -->
-      
+     
       <!-- edit and delete -->
    
         <ng-container matColumnDef="action">
           <th mat-header-cell *matHeaderCellDef> Action</th>
           <td mat-cell *matCellDef="let row"> 
-            <button mat-icon-button matTooltip="edit info" color="accent" (click)="change(row._id)">
+              <button mat-icon-button matTooltip="edit info" color="accent"  (click) = "onClickButton(row)">
               <mat-icon >edit</mat-icon>
             </button>
           </td>
@@ -136,11 +115,11 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns1;"></tr>
     </table>
-    
-    <div *ngIf="update">
-      <!-- Content to render when condition is true. -->
+    <mat-paginator [pageSizeOptions]="[4,8,12,16]"></mat-paginator>
+    <!-- <div *ngIf="update">
+   
       <app-updateinfo [id] = 'this.id'></app-updateinfo>
-    </div>
+    </div> -->
 
   </mat-tab>
 </mat-tab-group>
@@ -153,3 +132,5 @@
   <br/>
   <input type="submit" value="Log In">
 </form> -->
+
+<notifier-container></notifier-container>
