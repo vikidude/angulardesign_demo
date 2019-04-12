@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
+@import "~angular-notifier/styles";
+html,body {
+    height: 100%;
+}
+body {
+    margin: 0;
+}
+
+ @import "~@angular/material/theming";
+
+
+ @include mat-core();
+
+ @import './custom_themes/theme1.scss';
+ @import './custom_themes/theme2.scss';
+ @import './custom_themes/theme3.scss';
+ @import './custom_themes/theme4.scss';
+
+
+ .my-theme1 {
+      @include angular-material-theme($themes1);
+      @include mat-core($custom-typography-theme1);
+ }
+ .my-theme2 {
+    @include angular-material-theme($theme2);
+    @include mat-core($custom-typography-theme2);
+}
+.my-theme3 {
+    @include angular-material-theme($theme3);
+    @include mat-core($custom-typography-theme3);
+}
+.my-theme4 {
+    @include angular-material-theme($theme4);
+    @include mat-core($custom-typography-theme4);
+}

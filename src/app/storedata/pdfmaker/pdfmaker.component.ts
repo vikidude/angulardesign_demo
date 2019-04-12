@@ -12,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./pdfmaker.component.css']
 })
 export class PdfmakerComponent implements OnInit {
-  public baseURL: string= 'http://192.168.1.6:3005/pdfmake/pdf';
+  public baseURL: string= 'http://192.168.1.7:3005/pdfmake/pdf';
   @ViewChild('colorProp') colprop:ElementRef;
   public info: Info[];
   displayedColumns: string[] = ['Student_Name', 'Register_Number', 'Mobile_Number'];

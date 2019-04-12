@@ -32,6 +32,7 @@ export class StudentinfoComponent implements OnInit {
   displayedColumns1: string[] = ['Student_Name', 'Register_Number', 'Mobile_Number','action'];
 
   dataSource;
+  
   update: boolean = false;
   id: string = '';
   constructor(private stu_service: StudentService, private http: HttpClient,  notifierService: NotifierService, private dialog: MatDialog, private Update: UpdateinfoService) {

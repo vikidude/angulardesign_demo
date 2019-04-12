@@ -1,0 +1,190 @@
+<mat-tab-group>
+    <mat-tab label="First"> <div class="conatiner-fill" style="text-align:center">
+        <h3>Populate demo</h3>
+      
+      <div style="display:block">
+          <div class="row">
+              <div class="col-sm-12 col-md-6 col-lg-4">
+                  <mat-form-field class="example-full-width">
+                      <input matInput type="text"  placeholder="Enter username" [(ngModel)]="data.username"><br>
+                     
+                  </mat-form-field>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-4">
+                  <mat-form-field class="example-full-width">
+                      <input type="text" matInput placeholder="Enter address" [(ngModel)]="data.address"><br>
+                   
+                  </mat-form-field>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-4">
+                  <mat-form-field class="example-full-width">
+                      <input type="email" matInput placeholder="Enter email" [(ngModel)]="data.email"><br>
+                   
+                  </mat-form-field>
+              </div>
+          </div>
+          <div class="row">
+  
+              <div class="col-sm-12 col-md-6 col-lg-4">
+                  <mat-form-field class="example-full-width">
+                      <input type="number" matInput placeholder="Enter mobile number" [(ngModel)]="data.mobilenumber"><br>
+                     
+                  </mat-form-field>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-4">
+                  <mat-form-field class="example-full-width">
+                      <input type="text" matInput placeholder="createdby" [(ngModel)]="data.createdBy"><br>
+                  
+                  </mat-form-field>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-4">
+                  <mat-form-field class="example-full-width">
+                      <input type="text" matInput placeholder="Enter modifiedby" [(ngModel)]="data.modifiedBy"><br>
+                   
+                  </mat-form-field>
+              </div>
+          </div>
+  
+          <div class="row">
+              <div class="col-sm-12 col-md-6 col-lg-4">
+                  <mat-form-field class="example-full-width">
+                      <input type="text" matInput placeholder="Enter status" [(ngModel)]="data.status"><br>
+                    
+                  </mat-form-field>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-4">
+                  <mat-form-field class="example-full-width">
+                      <input type="number" matInput placeholder="Enter total income" [(ngModel)]="data.credits.totalincome"><br>
+                      
+                  </mat-form-field>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-4">
+                  <mat-form-field class="example-full-width">
+                      <input type="number" matInput placeholder="Enter pf" [(ngModel)]="data.credits.pf"><br>
+               
+                  </mat-form-field>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-12 col-md-6 col-lg-4">
+                  <mat-form-field class="example-full-width">
+                      <input type="number" matInput placeholder="Enter esi" [(ngModel)]="data.credits.esi"><br>
+                      
+                  </mat-form-field>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-4">
+                  <mat-form-field class="example-full-width">
+                      <input type="number" matInput placeholder="Enter incentive" [(ngModel)]="data.credits.incentive"><br>
+     
+                  </mat-form-field>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-4">
+                  <mat-form-field class="example-full-width">
+                      <input type="number" matInput placeholder="Enter insurance" [(ngModel)]="data.credits.insurance"><br>
+                  </mat-form-field>
+              </div>
+          </div>  
+      
+        <button mat-fab color="primary" (click)="save()">Save </button>
+      </div>
+      </div> </mat-tab>
+    <mat-tab label="Second"> 
+        <div [style.display]="hasError ? 'block' : 'none' ">
+            The phone number you entered does not match the expected format
+         </div>
+         <button (click) = "showhide()">Show/Hide</button> </mat-tab>
+    <mat-tab label="Third"> 
+      <h2>Populate values</h2>
+      <table mat-table [dataSource]="dataSource" class="example-container">
+
+          <ng-container matColumnDef="username">
+              <th mat-header-cell *matHeaderCellDef> Username </th>
+              <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+            </ng-container>
+          
+            <!-- address Column -->
+            <ng-container matColumnDef="address">
+              <th mat-header-cell *matHeaderCellDef> Address </th>
+              <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+            </ng-container>
+          
+            <!-- email Column -->
+            <ng-container matColumnDef="email">
+              <th mat-header-cell *matHeaderCellDef> Email </th>
+              <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+            </ng-container>
+          
+            <!-- mobilenumber Column -->
+            <ng-container matColumnDef="mobilenumber">
+              <th mat-header-cell *matHeaderCellDef> Mobile number </th>
+              <td mat-cell *matCellDef="let element"> {{element.mobilenumber}} </td>
+            </ng-container>
+
+            <!-- createdby Column -->
+            <ng-container matColumnDef="createdBy">
+                <th mat-header-cell *matHeaderCellDef> CreatedBy </th>
+                <td mat-cell *matCellDef="let element"> {{element.createdBy}} </td>
+              </ng-container>
+            
+              <!-- createdon Column -->
+              <ng-container matColumnDef="createdOn">
+                <th mat-header-cell *matHeaderCellDef> CreatedOn </th>
+                <td mat-cell *matCellDef="let element"> {{element.createdOn}} </td>
+              </ng-container>
+            
+              <!-- modifiedby Column -->
+              <ng-container matColumnDef="modifiedBy">
+                <th mat-header-cell *matHeaderCellDef> ModifiedBy </th>
+                <td mat-cell *matCellDef="let element"> {{element.modifiedBy}} </td>
+              </ng-container>
+
+                 <!-- modifiedon Column -->
+            <ng-container matColumnDef="modifiedOn">
+                <th mat-header-cell *matHeaderCellDef> ModifiedOn </th>
+                <td mat-cell *matCellDef="let element"> {{element.modifiedOn}} </td>
+              </ng-container>
+            
+              <!-- status Column -->
+              <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef> Status </th>
+                <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+              </ng-container>
+            
+              <!-- total income Column -->
+              <ng-container matColumnDef="totalincome">
+                <th mat-header-cell *matHeaderCellDef> Total Income </th>
+                <td mat-cell *matCellDef="let element"> {{element.credits[0].totalincome}} </td>
+              </ng-container>
+
+                 
+              <!-- pf Column -->
+              <ng-container matColumnDef="pf">
+                  <th mat-header-cell *matHeaderCellDef> PF </th>
+                  <td mat-cell *matCellDef="let element"> {{element.credits[0].pf}} </td>
+                </ng-container>
+              
+              <!-- esi Column -->
+              <ng-container matColumnDef="esi">
+                <th mat-header-cell *matHeaderCellDef> ESI </th>
+                <td mat-cell *matCellDef="let element"> {{element.credits[0].esi}} </td>
+              </ng-container>
+                
+              <!-- incentive Column -->
+                <ng-container matColumnDef="incentive">
+                  <th mat-header-cell *matHeaderCellDef> Incentive </th>
+                  <td mat-cell *matCellDef="let element"> {{element.credits[0].incentive}} </td>
+                </ng-container>
+              
+              <!-- insurance Column -->
+              <ng-container matColumnDef="insurance">
+                <th mat-header-cell *matHeaderCellDef> Insurance </th>
+                <td mat-cell *matCellDef="let element"> {{element.credits[0].insurance}} </td>
+              </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-tab>
+
+  </mat-tab-group>
+  

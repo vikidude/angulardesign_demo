@@ -1,0 +1,69 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+// customize color of primary, accent and warn
+
+// primary
+$theme1-primary: mat-palette($mat-orange, 300);
+// accent
+$theme1-accent:  mat-palette($mat-green, 500);
+// warn
+$theme1-warn:    mat-palette($mat-red);
+
+// font size, and font family by using typography
+$custom-typography-theme1: mat-typography-config(
+  $font-family: 'Alegreya, serif',
+  $headline: mat-typography-level(15px, 48px, 700),
+  $body-1: mat-typography-level(18px, 50px, 500px),
+  $button: mat-typography-level(18px, 50px, 50px),
+
+);
+
+// custom background and foreground palettes
+$theme1-background: (
+  status-bar: green,
+  app-bar:    map_get($mat-blue, 900),
+  background: rgb(236, 158, 13),
+  hover:      rgba(white, 0.04), 
+  card:       map_get($mat-cyan, 800),
+  dialog:     map_get($mat-grey, 800),
+  disabled-button: $white-12-opacity,
+  raised-button: map-get($mat-grey, 800),
+  focused-button: $white-6-opacity,
+  selected-button: map_get($mat-grey, 900),
+  selected-disabled-button: map_get($mat-grey, 800),
+  disabled-button-toggle: black,
+  unselected-chip: map_get($mat-grey, 700),
+  disabled-list-option: black,
+);
+
+$theme1-foreground: (
+  base:              yellow,
+  divider:           $white-12-opacity,
+  dividers:          $white-12-opacity,
+  disabled:          rgba(white, 0.3),
+  disabled-button:   rgba(white, 0.3),
+  disabled-text:     rgba(white, 0.3),
+  hint-text:         rgba(white, 0.3),
+  secondary-text:    rgba(white, 0.7),
+  icon:              white,
+  icons:             white,
+  text:              yellow,
+  slider-min:        white,
+  slider-off:        rgba(white, 0.3),
+  slider-off-active: rgba(white, 0.3),
+);
+
+
+@function create-wonky-theme($primary, $accent, $warn: mat-palette($mat-red)) {
+  @return (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+    is-dark: false,
+    foreground: $theme1-foreground,
+    background: $theme1-background,
+  );
+}
+$themes1: create-wonky-theme($theme1-primary, $theme1-accent, $theme1-warn);

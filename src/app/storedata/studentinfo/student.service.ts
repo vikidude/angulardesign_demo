@@ -12,7 +12,7 @@ export class StudentService {
 
   constructor(private http : HttpClient) { }
 
-public baseURL: string= 'http://192.168.1.6:3002/api/studentinfo';
+public baseURL: string= 'http://192.168.1.7:3002/api/studentinfo';
 
 id: string;
 // get student list

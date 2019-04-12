@@ -8,6 +8,8 @@ import { FormdemoComponent } from './storedata/formdemo/formdemo.component';
 import { PdfmakerComponent } from './storedata/pdfmaker/pdfmaker.component';
 import { MattabledemoComponent } from './storedata/mattabledemo/mattabledemo.component';
 import { ObjectpassingComponent } from './storedata/objectpassing/objectpassing.component';
+import { ImageuploadComponent } from './storedata/imageupload/imageupload.component';
+import { PopulatdemoComponent } from './storedata/populatdemo/populatdemo.component';
 
 
 const routes: Routes = [
@@ -39,6 +41,14 @@ const routes: Routes = [
     {
       path: 'objectpass',
       component: ObjectpassingComponent
+    },
+    {
+      path: 'imageupload',
+      component: ImageuploadComponent
+    },
+    {
+      path: 'populate',
+      component: PopulatdemoComponent
     }
 //   ]
 // },

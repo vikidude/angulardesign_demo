@@ -23,6 +23,8 @@ import { MattabledemoComponent } from './storedata/mattabledemo/mattabledemo.com
 
 import {NgxTTitanColorPickerModule} from "ngx-ttitan-color-picker";
 import { ObjectpassingComponent } from './storedata/objectpassing/objectpassing.component';
+import { ImageuploadComponent } from './storedata/imageupload/imageupload.component';
+import { PopulatdemoComponent } from './storedata/populatdemo/populatdemo.component';
 
 
 const customNotifierOptions: NotifierOptions = {
@@ -77,6 +79,8 @@ const customNotifierOptions: NotifierOptions = {
     PdfmakerComponent,
     MattabledemoComponent,
     ObjectpassingComponent,
+    ImageuploadComponent,
+    PopulatdemoComponent,
     
     
 

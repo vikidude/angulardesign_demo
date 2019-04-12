@@ -1,0 +1,158 @@
+// @import '~@angular/material/theming';
+
+// @include mat-core();
+
+// customize color of primary, accent and warn
+
+// primary
+$light-theme-primary: mat-palette($mat-purple, 300);
+// accent
+$light-theme-accent:  mat-palette($mat-green, 500);
+// warn
+$light-theme-warn:    mat-palette($mat-red);
+// initialize the values to light theme
+//$light-theme: mat-light-theme($light-theme-primary, $light-theme-accent, $light-theme-warn);
+
+// font size, and font family
+$custom-typography-light: mat-typography-config(
+  $font-family: 'Pacifico, monospace',
+  $headline: mat-typography-level(15px, 48px, 700),
+  $body-1: mat-typography-level(18px, 50px, 500px),
+  $button: mat-typography-level(18px, 50px, 50px),
+
+);
+
+// custom background and foreground palettes
+$my-light-theme-background: (
+  status-bar: green,
+  app-bar:    map_get($mat-blue, 900),
+  background: orange,
+  hover:      rgba(white, 0.04), 
+  card:       map_get($mat-cyan, 800),
+  dialog:     map_get($mat-grey, 800),
+  disabled-button: $white-12-opacity,
+  raised-button: map-get($mat-grey, 800),
+  focused-button: $white-6-opacity,
+  selected-button: map_get($mat-grey, 900),
+  selected-disabled-button: map_get($mat-grey, 800),
+  disabled-button-toggle: black,
+  unselected-chip: map_get($mat-grey, 700),
+  disabled-list-option: black,
+);
+
+$my-light-theme-foreground: (
+  base:              yellow,
+  divider:           $white-12-opacity,
+  dividers:          $white-12-opacity,
+  disabled:          rgba(white, 0.3),
+  disabled-button:   rgba(white, 0.3),
+  disabled-text:     rgba(white, 0.3),
+  hint-text:         rgba(white, 0.3),
+  secondary-text:    rgba(white, 0.7),
+  icon:              white,
+  icons:             white,
+  text:              yellow,
+  slider-min:        white,
+  slider-off:        rgba(white, 0.3),
+  slider-off-active: rgba(white, 0.3),
+);
+
+
+@function create-wonky-theme($primary, $accent, $warn: mat-palette($mat-red)) {
+  @return (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+    is-dark: false,
+    foreground: $my-light-theme-foreground,
+    background: $my-light-theme-background,
+  );
+}
+$custom-light-theme: create-wonky-theme($light-theme-primary, $light-theme-accent, $light-theme-warn);
+
+// inject to the component by class
+
+.light-theme{
+ 
+      @include angular-material-theme($custom-light-theme);
+    // @include angular-material-theme($light-theme);
+     @include mat-core($custom-typography-light);
+     
+    //  background-color: mat-color($light-theme-warn, 300); //changes the bg color of the component
+}
+
+
+// primary
+$dark-theme-primary: mat-palette($mat-yellow, 300);
+// accent
+$dark-theme-accent:  mat-palette($mat-purple, 500);
+// warn
+$dark-theme-warn:    mat-palette($mat-red);
+
+// $dark-theme: mat-dark-theme($light-theme-primary, $light-theme-accent, $light-theme-warn);
+
+$custom-typography-dark: mat-typography-config(
+  $font-family: 'Pacifico, monospace',
+  $headline: mat-typography-level(12px, 48px, 700),
+  $body-1: mat-typography-level(12px, 50px, 500px),
+  $button: mat-typography-level(12px, 50px, 50px),
+
+);
+
+
+// custom background and foreground palettes
+$my-dark-theme-background: (
+  status-bar: rgb(70, 0, 128),
+  app-bar:    map_get($mat-yellow, 900),
+  background: rgb(31, 182, 77),
+  hover:      rgba(rgb(228, 65, 146), 0.04), 
+  card:       map_get($mat-purple, 800),
+  dialog:     map_get($mat-orange, 800),
+  disabled-button: $white-12-opacity,
+  raised-button: map-get($mat-grey, 800),
+  focused-button: $white-6-opacity,
+  selected-button: map_get($mat-grey, 900),
+  selected-disabled-button: map_get($mat-grey, 800),
+  disabled-button-toggle: black,
+  unselected-chip: map_get($mat-grey, 700),
+  disabled-list-option: black,
+);
+
+$my-dark-theme-foreground: (
+  base:              rgb(213, 219, 226),
+  divider:           $white-12-opacity,
+  dividers:          $white-12-opacity,
+  disabled:          rgba(white, 0.3),
+  disabled-button:   rgba(white, 0.3),
+  disabled-text:     rgba(white, 0.3),
+  hint-text:         rgba(white, 0.3),
+  secondary-text:    rgba(white, 0.7),
+  icon:              rgb(28, 189, 42),
+  icons:             rgb(110, 63, 63),
+  text:              rgb(13, 4, 27),
+  slider-min:        white,
+  slider-off:        rgba(white, 0.3),
+  slider-off-active: rgba(white, 0.3),
+);
+
+
+@function create-wonky-theme($primary, $accent, $warn: mat-palette($mat-red)) {
+  @return (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+    is-dark: false,
+    foreground: $my-dark-theme-foreground,
+    background: $my-dark-theme-background,
+  );
+}
+$custom-dark-theme: create-wonky-theme($dark-theme-primary, $dark-theme-accent, $dark-theme-warn);
+
+
+// dark theme background
+
+.dark-theme {
+  @include angular-material-theme($custom-dark-theme);
+    //@include angular-material-theme($dark-theme);
+    @include mat-core($custom-typography-dark);
+}

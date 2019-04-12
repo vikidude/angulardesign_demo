@@ -1,13 +1,16 @@
-
 import {MediaMatcher} from '@angular/cdk/layout';
-import {ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
+import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
+import { OverlayContainer } from '@angular/cdk/overlay';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnDestroy{
+export class AppComponent implements OnDestroy,  OnInit{
+  theme: string = 'my-theme1';
+  ativatedTheme: boolean = true;
   showFiller = false;
   title = 'testapp1';
   mobileQuery: MediaQueryList;
@@ -23,15 +26,29 @@ export class AppComponent implements OnDestroy{
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private overlayContainer : OverlayContainer) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
+  ngOnInit(){
+    console.log(this.theme)
+  }
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
   shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
+
+  update(e) {
+    console.log("update calls()", e.target.value);
+    this.theme = e.target.value;
+    const overlayContainerClasses = this.overlayContainer.getContainerElement().classList;
+    const themeClassesToRemove = Array.from(overlayContainerClasses).filter((item: string) => item.includes('-theme'));
+    if (themeClassesToRemove.length) {
+       overlayContainerClasses.remove(...themeClassesToRemove);
+    }
+    overlayContainerClasses.add(this.theme);
+  }
 }

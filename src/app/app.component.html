@@ -1,53 +1,111 @@
+<div class="container-fill">
+<div [class]="theme">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span class="example-spacer"></span>
+        <!-- <span class="example-spacer"></span> -->
+      <h4 >Custom Toolbar</h4>
+      
+      <!-- <span>Dashboard</span> -->
+      <span class="example-spacer"></span>
+      <button mat-button [matMenuTriggerFor]="appMenu" matTooltip="Change theme"
+        aria-label="Button that displays a tooltip when focused or hovered over">
+        <mat-icon class="material-icons">format_color_fill</mat-icon>
+      </button>
 
-<!-- <mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side">
-    <p>Demo Sidenav</p>
-    <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
-  
-    <a routerLink = '/' (click)="drawer.toggle()">
-      Home
-    </a>
-    <br>
-    <a routerLink = '/dashboard' (click)="drawer.toggle()">
-      Dashboard
-    </a>
-  </mat-drawer>
-  <button type="button" mat-button (click)="drawer.toggle()">
-    Toggle sidenav
-  </button>
+      <mat-menu #appMenu="matMenu" >
 
-  <div class="example-sidenav-content">
-    
-    <router-outlet mat-app-background></router-outlet>
-  </div>
+        <div class="row">
+          <div class="col-sm">
+            <button mat-menu-item value="my-theme1" (click)="update($event)" >
+              <div *ngIf = "theme === 'my-theme1'; else theme1">
+                  <mat-icon style="color:dodgerblue">
+                      check_circle
+                  </mat-icon> 
+              </div>
+              <ng-template #theme1>
+                  <mat-icon style="color:dodgerblue">
+                      lens
+                  </mat-icon> 
+              </ng-template>
+                  
+                  
+            </button>
+              
+          </div>
+          <div class="col-sm">
+            <button mat-menu-item value="my-theme2" (click)="update($event)" >
+                <div *ngIf = "theme === 'my-theme2'; else theme2">
+                    <mat-icon style="color: rgb(152, 42, 167)">
+                        check_circle</mat-icon>
+                  </div>  
+                  <ng-template #theme2>
+                      <mat-icon style="color: rgb(152, 42, 167)">
+                          lens</mat-icon>
+                  </ng-template>
+                 
+                  
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm">
+            <button mat-menu-item value="my-theme3" (click)="update($event)">
+                <div *ngIf = "theme === 'my-theme3'; else theme3">
+                    <mat-icon style="color: rgb(67, 207, 142)">
+                        check_circle</mat-icon> 
+                  </div>
+                  <ng-template #theme3>
+                      <mat-icon style="color:rgb(67, 207, 142)">
+                          lens</mat-icon>
+                  </ng-template>
+              
+            </button>
+          </div>
+          <div class="col-sm">
+            <button mat-menu-item value="my-theme4" (click)="update($event)">
+                <div *ngIf = "theme === 'my-theme4'; else theme4">
+                    <mat-icon style="color: rgb(106, 163, 14)" >
+                        check_circle</mat-icon> 
+                  </div>
+                  <ng-template #theme4>
+                      <mat-icon style="color: rgb(106, 163, 14)">
+                          lens</mat-icon> 
+                  </ng-template>
+              
+            </button>
+         </div>
+        </div>
 
-</mat-drawer-container> -->
-
-<!-- <a routerLink = '/dashboard'>Dashboard</a> -->
-<app-main-nav></app-main-nav>
+      </mat-menu>
 
 
-<!-- <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" >
-  <mat-toolbar color="primary" class="example-toolbar">
-    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-    <h1 class="example-app-name">Responsive Demo App</h1>
+    </mat-toolbar-row>
+
   </mat-toolbar>
 
-  <mat-sidenav-container class="example-sidenav-container"
-                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
-                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
-      <mat-nav-list>
-        <a routerLink = '/' (click)="snav.togg
-        le()">Home</a><br><br>
-        <a routerLink = '/dashboard' (click)="snav.toggle()">Dashboard</a>
-      </mat-nav-list>
-    </mat-sidenav>
 
-    <mat-sidenav-content>
-     <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-</div> -->
+  <!-- <mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Shiba Inu</mat-card-title>
+    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p>
+      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+      bred for hunting.
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary">LIKE</button>
+    <button mat-raised-button color="accent">SHARE</button>
+    <button mat-raised-button color="warn">COMMENT</button>
+  </mat-card-actions>
+</mat-card> -->
 
-<!-- <div *ngIf="!shouldRun">Please open on Stackblitz to see result</div> -->
+  <app-main-nav></app-main-nav>
+</div>
+</div>

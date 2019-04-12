@@ -29,3 +29,21 @@ h1.example-app-name {
      `<body>` to be our scrolling element for mobile layouts. */
   flex: 1 0 auto;
 }
+
+.example-card {
+  max-width: 400px;
+  
+}
+
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+h4 {
+  text-align: center;
+}

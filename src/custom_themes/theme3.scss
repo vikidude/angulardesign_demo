@@ -1,0 +1,69 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+// customize color of primary, accent and warn
+
+// primary
+$theme3-primary: mat-palette($mat-blue-grey, 300);
+// accent
+$theme3-accent:  mat-palette($mat-deep-orange, 500);
+// warn
+$theme3-warn:    mat-palette($mat-red);
+
+// font size, and font family by using typography
+$custom-typography-theme3: mat-typography-config(
+  $font-family: 'Dokdo, cursive',
+  $headline: mat-typography-level(15px, 48px, 700),
+  $body-1: mat-typography-level(18px, 50px, 500px),
+  $button: mat-typography-level(18px, 50px, 50px),
+
+);
+
+// custom background and foreground palettes
+$theme3-background: (
+  status-bar: rgba(202, 153, 248, 0.39),
+  app-bar:    map_get($mat-blue, 900),
+  background: rgb(230, 221, 205),
+  hover:      rgba(white, 0.04), 
+  card:       map_get($mat-cyan, 800),
+  dialog:     map_get($mat-amber, 800),
+  disabled-button: $white-12-opacity,
+  raised-button: map-get($mat-grey, 800),
+  focused-button: $white-6-opacity,
+  selected-button: map_get($mat-grey, 900),
+  selected-disabled-button: map_get($mat-grey, 800),
+  disabled-button-toggle: black,
+  unselected-chip: map_get($mat-grey, 700),
+  disabled-list-option: black,
+);
+
+$theme3-foreground: (
+  base:              rgb(126, 159, 190),
+  divider:           $white-12-opacity,
+  dividers:          $white-12-opacity,
+  disabled:          rgba(white, 0.3),
+  disabled-button:   rgba(white, 0.3),
+  disabled-text:     rgba(white, 0.3),
+  hint-text:         rgba(white, 0.3),
+  secondary-text:    rgba(white, 0.7),
+  icon:              rgb(148, 117, 117),
+  icons:             rgb(8, 39, 122),
+  text:              rgb(2, 35, 41),
+  slider-min:        rgb(17, 14, 14),
+  slider-off:        rgba(white, 0.3),
+  slider-off-active: rgba(white, 0.3),
+);
+
+
+@function create-wonky-theme($primary, $accent, $warn: mat-palette($mat-red)) {
+  @return (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+    is-dark: false,
+    foreground: $theme3-foreground,
+    background: $theme3-background,
+  );
+}
+$theme3: create-wonky-theme($theme3-primary, $theme3-accent, $theme3-warn);
